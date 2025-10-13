@@ -2,3 +2,5 @@ matplotlib
 numpy
 pandas
 seaborn
+ucimlrepo
+tabulate

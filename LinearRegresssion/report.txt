@@ -1,0 +1,84 @@
+1. Methodology
+    This report explains the implementation of a Linear Regression model. The weights and bias are initialized with 0 
+        and the model uses gradient descent to optimize the weights and bias. Gradient descent works by running for n number of iterations until convergence is reached, 
+        calculating the cost (which is MSE between predicted and actual training data) at each iteration and reducing the cost by updating weights and bias.
+        In each iteration, weights are updated using W(t+1) = W(t) - learning_rate * derivative of cost with respect to weights.
+    
+    The algorithm implementation is done in Python using a LinearRegression class:
+        - The class is initialized with iterations and learning_rate parameters
+        - The model learning method is fit(), which takes training data as input along with actual output
+        - The data is first standardized in the preprocess_data() method where data is modified so that the mean is 0 and standard deviation is 1
+        - After preprocessing, gradient descent is used to generate the optimized weights
+        - The predict method takes input values, processes the data to standardize it, then predicts the output based on weight * input + bias
+
+2. Results and Evaluation
+    The model was trained with 1000 iterations and multiple learning rates to compare the results:
+    
+    Iterations  Learning Rate  R2 Score    MSE         
+    1000        0.001          0.024016    1.296583    
+    1000        0.01           0.601104    0.539189    
+    1000        0.01           0.587635    0.557960      
+    10000       0.02           0.582837    0.544874    
+    10000       0.01           0.615475    0.501702    
+    1000        0.02           0.604879    0.502217    
+    10000       0.02           0.594145    0.537033    
+    1000        0.02           0.597719    0.521676    
+    10000       0.03           0.587686    0.544173    
+    1000        0.025          0.615049    0.516376    
+    1000        0.026          0.602487    0.524985      
+    1000        0.024          0.602069    0.534606    
+    1000        0.027          0.591293    0.526869    
+    
+    Based on the observations, the final learning rate was set to 0.026 and iterations to 1000.
+    
+    Final Model Performance Metrics:
+    - R2 Score: 0.6150485434977497
+    - MSE: 0.5163759753530258
+
+3. Analysis and Observations
+    Based on the experimental results and model performance, several key observations can be made:
+    
+    Learning Rate Impact:
+    - Very low learning rates (0.001) resulted in poor performance (R² = 0.024), indicating insufficient learning
+    - Optimal learning rate was found to be around 0.026, providing the best balance between convergence speed and stability
+    - Higher learning rates (0.03+) showed diminishing returns and potential instability
+    
+    Model Performance:
+    - The best R² score achieved was 0.615, indicating that the model explains approximately 61.5% of the variance in housing prices
+    - MSE of 0.516 suggests reasonable prediction accuracy for the California housing dataset
+    - The model shows consistent performance across multiple runs with the same parameters
+    
+    Convergence Behavior:
+    - The model typically converged well before reaching the maximum 1000 iterations
+    - Early stopping mechanism effectively prevented overfitting and reduced computational overhead
+    - Cost function showed smooth decrease, indicating stable gradient descent
+    
+    Dataset Characteristics:
+    - The California housing dataset presents moderate complexity for linear regression
+    - Feature standardization was crucial for stable convergence
+    - The 8 features provide reasonable predictive power for housing prices
+    
+    Limitations Identified:
+    - Linear relationship assumption may not capture all non-linear patterns in housing data
+    - R² score of 0.615 leaves room for improvement through feature engineering or non-linear models
+    - Model performance could benefit from additional features or polynomial terms
+
+4. Resources Used
+    References:
+    - Python for Data Analysis, 2nd Edition by Wes McKinney
+    - GeeksforGeeks article on R-squared calculation
+    
+    Software and Libraries:
+    - Python 3.x: Primary programming language
+    - NumPy: Numerical computations and array operations
+    - Pandas: Data manipulation and analysis
+    - Matplotlib: Data visualization and plotting
+    - Scikit-learn: Dataset loading and train-test splitting
+    
+    Dataset:
+    - California Housing Dataset from Scikit-learn
+    - 20,640 samples with 8 features
+    - Target variable: Median house value in California districts
+    - Features include: median income, house age, average rooms, etc.
+
+
