@@ -102,7 +102,7 @@ dmypy.json
 # *.feather
 
 # IDE specific
-.vscode/
+.vscode/settings.json
 .idea/
 *.swp
 *.swo
