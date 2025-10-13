@@ -4,3 +4,4 @@ pandas
 seaborn
 ucimlrepo
 tabulate
+scikit-learn 

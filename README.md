@@ -1,16 +1,31 @@
 # Machine Learning Project
 
-This repository contains machine learning implementations and data analysis projects.
+This repository contains multiple machine learning implementations built for IITJ coursework: a from-scratch Linear Regression, and a from-scratch KNN classifier (plus a scikit-learn KNN example).
 
 ## 📁 Project Structure
 
 ```
 MachineLearning/
-├── linearRegression.py          # Linear regression implementation
-├── requirments.py              # Project dependencies
-├── Salary_Data.csv             # Dataset
-├── .gitignore                  # Git ignore file
-└── README.md                   # This file
+├── KNN/
+│   ├── Knn.py                       # From-scratch KNN on Iris (classification)
+│   └── knn_run.py                   # scikit-learn KNN example (regression)
+│   └── Visulaization/               # Generated plots (accuracy vs K, decision boundaries)
+│       ├── Accuracy_vs_K_value.png
+│       ├── Accuracy_vs_K_value.txt
+│       ├── decision_boundry_1.png
+│       └── decision_boundry_15.png
+├── LinearRegresssion/
+│   ├── linearRegression.py          # From-scratch Linear Regression on California Housing
+│   ├── linearRegression_run.py      # scikit-learn Linear Regression on Salary dataset
+│   ├── Training DataSet/
+│   │   └── Salary_Data.csv          # Dataset for salary prediction examples
+│   └── Visulaizations/              # Generated plots and metrics
+│       ├── actual_vs_predicted.png
+│       ├── learning_curve.png
+│       ├── r2_and_error.txt
+│       └── report.txt
+├── README.md
+└── requirments.py                   # Dependency list (typo in name kept as-is)
 ```
 
 ## 🚀 Getting Started
@@ -18,99 +33,91 @@ MachineLearning/
 ### Prerequisites
 
 - Python 3.9+
-- Required packages (see `requirments.py`)
 
-### Installation
+### Install dependencies
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd MachineLearning
-```
+You can install the packages listed below directly (since the repo has a `requirments.py` file instead of a `requirements.txt`).
 
-2. Install dependencies:
 ```bash
 pip install -r requirments.py
 ```
 
-## 📊 Projects
+## 📊 Projects and How to Run
 
-### 1. Linear Regression (`linearRegression.py`)
+### 1) Linear Regression — from scratch (`LinearRegresssion/linearRegression.py`)
 
-Implementation of linear regression for salary prediction using:
-- Pandas for data manipulation
-- Scikit-learn for machine learning
-- One-hot encoding for categorical variables
-- Matplotlib for visualization
+- Uses the California Housing dataset (downloaded via scikit-learn).
+- Saves learning curve and actual-vs-predicted plots.
 
-**Features:**
-- Data preprocessing with One-Hot encoding
-- Missing value handling
-- Train-test split
-- Model training and prediction
-- Visualization of results
+Run from the project root or from inside the `LinearRegresssion` folder:
+
+```bash
+cd LinearRegresssion
+python linearRegression.py
+```
+
+Generated files will be saved in your current working directory (recommended to run from `LinearRegresssion` so outputs align with that folder).
+
+### 2) Linear Regression — scikit-learn on Salary dataset (`LinearRegresssion/linearRegression_run.py`)
+
+- Reads `Training DataSet/Salary_Data.csv`.
+- Trains a simple linear model and can generate plots/metrics.
+
+Because the script reads `Salary_Data.csv` from the current directory, run it from the dataset folder and reference the script relatively:
+
+```bash
+cd "LinearRegresssion/Training DataSet"
+python ../linearRegression_run.py
+```
+
+### 3) KNN — from scratch on Iris (`KNN/Knn.py`)
+
+- Downloads the Iris dataset via `ucimlrepo`.
+- Can generate decision boundary plots for selected features.
+
+Run from the `KNN` folder:
+
+```bash
+cd KNN
+python Knn.py
+```
+
+Outputs (accuracy vs K plot, decision boundaries) are saved in the current directory; recommended to run from `KNN` so they land in that folder. Existing images are stored under `KNN/Visulaization`.
+
+### 4) KNN — scikit-learn example on Salary dataset (`KNN/knn_run.py`)
+
+- Uses `KNeighborsRegressor` on the Salary dataset.
+- Expects `Salary_Data.csv` in the current working directory.
+
+Run it from the dataset folder and reference the script relatively:
+
+```bash
+cd "LinearRegresssion/Training DataSet"
+python ../../KNN/knn_run.py
+```
 
 ## 🛠️ Dependencies
 
 ```
-matplotlib
 numpy
 pandas
+matplotlib
 seaborn
 scikit-learn
+ucimlrepo
+tabulate
 ```
 
-## 📈 Usage
+## 🔍 Notes and Tips
 
-### Running Linear Regression
-
-```bash
-python linearRegression.py
-```
-
-## 📝 Key Learning Points
-
-### Data Preprocessing
-- **One-Hot Encoding**: Converting categorical variables to numeric
-- **Missing Value Handling**: Proper handling of NaN values
-- **Data Reshaping**: Converting 1D arrays to 2D for ML algorithms
-
-### Machine Learning
-- **Linear Regression**: Basic regression implementation
-- **Train-Test Split**: Proper data splitting for model evaluation
-- **Feature Engineering**: Creating meaningful features from raw data
-
-### Common Issues & Solutions
-- **Shape Mismatch**: Using `.reshape(-1, 1)` for single features
-- **Categorical Data**: One-hot encoding vs label encoding
-- **Missing Values**: Proper filtering and handling
-
-## 🔧 Troubleshooting
-
-### Common Errors
-
-1. **"Expected 2D array, got 1D array"**
-   - Solution: Use `.reshape(-1, 1)` for single features
-
-2. **"divide by zero encountered in matmul"**
-   - Solution: Check for NaN values and handle missing data
-
-3. **"RuntimeWarning: overflow encountered"**
-   - Solution: Check data types and scale features if needed
+- If you get file-not-found errors for `Salary_Data.csv`, ensure your working directory matches the commands above.
+- For from-scratch implementations, outputs are saved to the current working directory. Run from the respective subfolder to keep files organized.
 
 ## 📚 Resources
 
-- [Pandas Documentation](https://pandas.pydata.org/)
-- [Scikit-learn Documentation](https://scikit-learn.org/)
-- [Matplotlib Documentation](https://matplotlib.org/)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+- Pandas Documentation: https://pandas.pydata.org/
+- Scikit-learn Documentation: https://scikit-learn.org/
+- Matplotlib Documentation: https://matplotlib.org/
 
 ## 📄 License
 
@@ -119,7 +126,3 @@ This project is for educational purposes.
 ## 👨‍💻 Author
 
 Created for Machine Learning coursework at IITJ.
-
----
-
-**Note**: This project is part of the Machine Learning curriculum and serves as a learning resource for data preprocessing and basic machine learning implementations.
