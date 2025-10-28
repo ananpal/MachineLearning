@@ -5,3 +5,4 @@ seaborn
 ucimlrepo
 tabulate
 scikit-learn 
+graphviz

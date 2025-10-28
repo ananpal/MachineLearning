@@ -1,0 +1,25 @@
+DECISION TREE STRUCTURE
+==================================================
+
+if petal length (cm) <= 1.900:
+  Leaf: Class Iris-setosa
+else:
+  if petal length (cm) <= 4.700:
+    if petal width (cm) <= 1.600:
+      Leaf: Class Iris-versicolor
+    else:
+      Leaf: Class Iris-virginica
+  else:
+    if petal width (cm) <= 1.700:
+      if petal length (cm) <= 4.900:
+        Leaf: Class Iris-versicolor
+      else:
+        Leaf: Class Iris-virginica
+    else:
+      if petal length (cm) <= 4.800:
+        Leaf: Class Iris-virginica
+      else:
+        Leaf: Class Iris-virginica
+
+==================================================
+Tree structure saved successfully.

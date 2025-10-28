@@ -1,0 +1,18 @@
+RANDOM FOREST vs DECISION TREE COMPARISON
+==================================================
+
+Performance Metrics:
+------------------------------
+Metric          Random Forest   Decision Tree  
+---------------------------------------------
+Accuracy        0.6500          0.5715         
+Precision       0.6581          0.5665         
+Recall          0.6500          0.5715         
+F1-Score        0.6361          0.5673         
+---------------------------------------------
+
+Analysis:
+- Random Forest uses ensemble learning with bootstrap sampling
+- Feature randomness reduces overfitting
+- Majority voting provides robust predictions
+- Single Decision Tree prone to overfitting with high depth
