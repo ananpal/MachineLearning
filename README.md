@@ -1,6 +1,6 @@
 # Machine Learning Project
 
-This repository contains multiple machine learning implementations built for IITJ coursework: a from-scratch Linear Regression, and a from-scratch KNN classifier (plus a scikit-learn KNN example).
+This repository contains multiple machine learning implementations built for IITJ coursework: from-scratch Linear Regression, KNN, Decision Tree, and a from-scratch Random Forest, plus small scikit-learn examples.
 
 ## 📁 Project Structure
 
@@ -14,6 +14,11 @@ MachineLearning/
 │       ├── Accuracy_vs_K_value.txt
 │       ├── decision_boundry_1.png
 │       └── decision_boundry_15.png
+├── DecisionTree/
+│   ├── DecisionTree.py              # From-scratch Decision Tree on Iris
+│   ├── model_evaluation.txt         # Depth vs accuracy table
+│   ├── decision_tree.png            # Graphviz tree visualization
+│   └── decision_boundary_plot.png   # 2D boundary (petal features)
 ├── LinearRegresssion/
 │   ├── linearRegression.py          # From-scratch Linear Regression on California Housing
 │   ├── linearRegression_run.py      # scikit-learn Linear Regression on Salary dataset
@@ -24,6 +29,15 @@ MachineLearning/
 │       ├── learning_curve.png
 │       ├── r2_and_error.txt
 │       └── report.txt
+├── K_Validation/
+│   └── K_Validation copy.py         # From-scratch K-Fold CV with KNN (Iris)
+│   ├── kfold_boxplot.png            # Accuracy distribution across folds
+│   └── traintest_scatter.png        # Repeated train-test accuracies
+├── Random Forest/
+│   └── RandomForest.py              # From-scratch Random Forest vs Decision Tree (Wine Quality)
+│   ├── accuracy_vs_trees.png        # Accuracy vs number of trees
+│   ├── feature_importance.png       # RF feature importances
+│   └── comparison_report.txt        # Metrics comparison summary
 ├── README.md
 └── requirments.py                   # Dependency list (typo in name kept as-is)
 ```
@@ -96,6 +110,44 @@ cd "LinearRegresssion/Training DataSet"
 python ../../KNN/knn_run.py
 ```
 
+### 5) Decision Tree — from scratch on Iris (`DecisionTree/DecisionTree.py`)
+
+- Trains a Gini-based tree, evaluates depth vs accuracy, and saves a Graphviz tree and 2D decision boundary.
+
+Run from the `DecisionTree` folder:
+
+```bash
+cd DecisionTree
+python DecisionTree.py
+```
+
+Generates `model_evaluation.txt`, `decision_tree.png`, and `decision_boundary_plot.png` in the folder.
+
+### 6) Random Forest — from scratch on Wine Quality (`Random Forest/RandomForest.py`)
+
+- Compares Random Forest vs single Decision Tree; saves accuracy vs trees and feature importance plots.
+
+Run from the `Random Forest` folder:
+
+```bash
+cd "Random Forest"
+python RandomForest.py
+```
+
+Generates `accuracy_vs_trees.png`, `feature_importance.png`, and `comparison_report.txt`.
+
+### 7) K-Fold Validation — KNN on Iris (`K_Validation/K_Validation copy.py`)
+
+- Implements K-Fold CV from scratch, compares with train-test splits, and saves plots.
+
+Run from the project root (paths assume root as CWD):
+
+```bash
+python K_Validation/"K_Validation copy.py"
+```
+
+Outputs are saved to `K_Validation/kfold_boxplot.png` and `K_Validation/traintest_scatter.png`.
+
 ## 🛠️ Dependencies
 
 ```
@@ -106,6 +158,7 @@ seaborn
 scikit-learn
 ucimlrepo
 tabulate
+graphviz
 ```
 
 ## 🔍 Notes and Tips
