@@ -10,10 +10,6 @@ MachineLearning/
 │   ├── Knn.py                       # From-scratch KNN on Iris (classification)
 │   └── knn_run.py                   # scikit-learn KNN example (regression)
 │   └── Visulaization/               # Generated plots (accuracy vs K, decision boundaries)
-│       ├── Accuracy_vs_K_value.png
-│       ├── Accuracy_vs_K_value.txt
-│       ├── decision_boundry_1.png
-│       └── decision_boundry_15.png
 ├── DecisionTree/
 │   ├── DecisionTree.py              # From-scratch Decision Tree on Iris
 │   ├── model_evaluation.txt         # Depth vs accuracy table
@@ -25,12 +21,8 @@ MachineLearning/
 │   ├── Training DataSet/
 │   │   └── Salary_Data.csv          # Dataset for salary prediction examples
 │   └── Visulaizations/              # Generated plots and metrics
-│       ├── actual_vs_predicted.png
-│       ├── learning_curve.png
-│       ├── r2_and_error.txt
-│       └── report.txt
 ├── K_Validation/
-│   └── K_Validation copy.py         # From-scratch K-Fold CV with KNN (Iris)
+│   └── K_Validation.py         # From-scratch K-Fold CV with KNN (Iris)
 │   ├── kfold_boxplot.png            # Accuracy distribution across folds
 │   └── traintest_scatter.png        # Repeated train-test accuracies
 ├── Random Forest/
